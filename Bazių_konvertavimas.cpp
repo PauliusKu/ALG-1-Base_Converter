@@ -4,7 +4,7 @@
 #include <algorithm>
 
 
-const int max = 10000;
+const int max = 1000;
 
 using std:: cout;
 using std:: cin;
@@ -93,7 +93,7 @@ void StringiVec(vector<int> &A, unsigned int b)
 	string Sk{};
 	cin >> Sk;
 	char c{};
-	for(int i = 0; i < Sk.size(); i++)
+	for(unsigned int i = 0; i < Sk.size(); i++)
 	{
 		c = Sk.at(i);
 		if (int(c) >= 48 &&  int(c) <= 57)
@@ -116,12 +116,11 @@ void iDvejetaine(vector<int> &A, unsigned int b)
 	vector <vector <int> > V1;
 	vector <int> Papild{};
 	Generavimas(V1, b);
-	for (unsigned int i = 0; i < 1; i++)
-	{
 		int j = 0;
-		bool b = true;
-		while(b)
+		bool bo = true;
+		while(bo)
 		{
+			cout << bo << endl;
 			if (Palyginti(A, V1[j])) //jei P daugiau arba lygu
 			{
 				j++;
@@ -129,16 +128,16 @@ void iDvejetaine(vector<int> &A, unsigned int b)
 				j--;
 				if (Palyginti(A, V1[j]))
 				{
-					Skirtumatorius(A, V1[j], b);
+					Skirtumatorius(A, V1[j], bo);
 					Papild.push_back(1);
 				} else Papild.push_back(0);
 				if (j == 0)
 				{
-					b = false;
+					bo = false;
 				}
 			}
 		}
-	}
+
 	A = Papild;
 }
 //-----------------------------------------------------------------------------------------------------------
